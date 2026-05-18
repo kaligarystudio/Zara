@@ -57,7 +57,6 @@ setInterval(updateCountdown, 1000);
 // ==========================
 // FORMULARIO RSVP
 // ==========================
-
 const form = document.getElementById("rsvpForm");
 
 form.addEventListener("submit", async function(e){
@@ -74,8 +73,7 @@ form.addEventListener("submit", async function(e){
 
   };
 
-  // URL APPS SCRIPT
-  const scriptURL = "https://script.google.com/macros/s/AKfycbxw3qQ76JnPjdW7RfNGtXDCx8gxKq-XjbpU6k58tqQ4wygVLBlqiTv0P45snNKJnpsS/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwBKv_Cogy4Zi3D5BXgavjGYkJmvkvdSoMT-rn8Zf0NXKAQL9aRHX_Mo2WMg6Rq3kr0/exec";
 
   try {
 
@@ -83,11 +81,13 @@ form.addEventListener("submit", async function(e){
 
       method: "POST",
 
-      body: JSON.stringify(data),
+      mode: "no-cors",
 
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+
+      body: JSON.stringify(data)
 
     });
 
@@ -97,10 +97,12 @@ form.addEventListener("submit", async function(e){
 
   } catch(error){
 
-    alert("Error al enviar confirmación");
-
     console.error(error);
 
+    alert("Error al enviar confirmación");
+
   }
+
+});
 
 });
