@@ -1,71 +1,271 @@
 <!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>XV Años Zara Yaretzi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Fondo Animado -->
+  <div class="background-glow">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <p class="subtitle">Mis XV Años</p>
+
+      <h1 class="title">
+        Zara Yaretzi
+      </h1>
+
+      <p class="xv">
+        ROSAS PIEDRAS
+      </p>
+
+      <div class="phrase">
+        “Hace quince años nació una hermosa niña, enviada por Dios para ser criada y formada como el más grande tesoro.
+        <br><br>
+
+        Hay momentos en la vida que imaginamos, soñamos y esperamos…
+        <br><br>
+
+        Uno de esos momentos ha llegado.”
+      </div>
+
+      <div class="date-box">
+        <h2>31 Julio 2026</h2>
+
+        <p>
+          Te esperamos para celebrar este momento tan especial
+        </p>
+      </div>
+
+      <!-- Cuenta regresiva -->
+      <div class="countdown">
+
+        <div class="count-item">
+          <h2 id="days">0</h2>
+          <span>DÍAS</span>
+        </div>
+
+        <div class="count-item">
+          <h2 id="hours">0</h2>
+          <span>HORAS</span>
+        </div>
+
+        <div class="count-item">
+          <h2 id="minutes">0</h2>
+          <span>MINUTOS</span>
+        </div>
+
+        <div class="count-item">
+          <h2 id="seconds">0</h2>
+          <span>SEGUNDOS</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PADRES Y PADRINOS -->
+  <section>
+
     <div class="container">
-      <h2 class="section-title">Itinerario</h2>
+
+      <h2 class="section-title">
+        Con la bendición de Dios y de nuestros padres
+      </h2>
+
+      <div class="family-grid">
+
+        <div class="card">
+          <h3>Padres</h3>
+
+          <p>
+            Nancy Piedras Martínez
+            <br>
+            &
+            <br>
+            Josué Rosas Santillan
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Padrinos</h3>
+
+          <p>
+            Irving Piedras
+            <br>
+            &
+            <br>
+            Verenice Cano
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ITINERARIO -->
+  <section>
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Itinerario
+      </h2>
 
       <div class="timeline">
 
+        <!-- Misa -->
         <div class="event-card">
+
           <h3>Misa</h3>
+
           <p>
-            6:00 PM<br>
+            6:00 PM
+            <br>
             31 de Julio del 2026
           </p>
 
-          <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/KJoZhmDXnUBCzHW76?g_st=aw">
+          <a
+            class="map-btn"
+            target="_blank"
+            href="https://maps.app.goo.gl/KJoZhmDXnUBCzHW76?g_st=aw">
+
             Ver ubicación
+
           </a>
+
         </div>
 
+        <!-- Recepción -->
         <div class="event-card">
+
           <h3>Recepción</h3>
+
           <p>
-            7:00 PM<br>
+            7:00 PM
+            <br>
             31 de Julio del 2026
           </p>
 
-          <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/TzRzDsq7mfRpco9z5?g_st=aw">
+          <a
+            class="map-btn"
+            target="_blank"
+            href="https://maps.app.goo.gl/TzRzDsq7mfRpco9z5?g_st=aw">
+
             Ver ubicación
+
           </a>
+
         </div>
 
       </div>
+
     </div>
+
   </section>
 
+  <!-- AVISO -->
   <section>
+
     <div class="container">
+
       <div class="notice">
-        <span>Código de color:</span><br><br>
+
+        <span>Código de color:</span>
+
+        <br><br>
+
         Los colores azul marino y dorado están reservados exclusivamente para la quinceañera.
+
       </div>
+
     </div>
+
   </section>
 
+  <!-- RSVP -->
   <section>
+
     <div class="container">
-      <h2 class="section-title">Confirmar asistencia</h2>
+
+      <h2 class="section-title">
+        Confirmar asistencia
+      </h2>
 
       <form id="rsvpForm">
-        <input type="text" id="nombre" placeholder="Nombre completo" required>
 
-        <input type="number" id="acompanantes" placeholder="Número de acompañantes" required>
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Nombre completo"
+          required>
+
+        <input
+          type="number"
+          id="acompanantes"
+          placeholder="Número de acompañantes"
+          required>
 
         <select id="asistencia" required>
-          <option value="">¿Asistirás?</option>
-          <option value="Sí">Sí asistiré</option>
-          <option value="No">No podré asistir</option>
+
+          <option value="">
+            ¿Asistirás?
+          </option>
+
+          <option value="Sí">
+            Sí asistiré
+          </option>
+
+          <option value="No">
+            No podré asistir
+          </option>
+
         </select>
 
-        <button type="submit">Confirmar asistencia</button>
+        <button type="submit">
+          Confirmar asistencia
+        </button>
+
       </form>
+
     </div>
+
   </section>
 
+  <!-- FOOTER -->
   <footer>
     XV Años de Zara Yaretzi Rosas Piedras · 2026
   </footer>
 
+  <!-- JS -->
   <script src="script.js"></script>
 
 </body>
+
 </html>
