@@ -29,8 +29,7 @@ form.addEventListener("submit", async function(e){
   // PEGA AQUÍ TU URL DE APPS SCRIPT
   // =============================
 
-  const scriptURL = "AKfycbxw3qQ76JnPjdW7RfNGtXDCx8gxKq-XjbpU6k58tqQ4wygVLBlqiTv0P45snNKJnpsS";
-
+const scriptURL = "https://script.google.com/macros/s/AKfycbxw3qQ76JnPjdW7RfNGtXDCx8gxKq-XjbpU6k58tqQ4wygVLBlqiTv0P45snNKJnpsS/exec";
   try {
 
     await fetch(scriptURL, {
