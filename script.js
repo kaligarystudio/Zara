@@ -1,12 +1,57 @@
 // ==========================
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+// CUENTA REGRESIVA
+// ==========================
 
+const targetDate = new Date("2026-07-31T18:00:00").getTime();
+
+function updateCountdown() {
+
+  const now = new Date().getTime();
+
+  const distance = targetDate - now;
+
+  // Si ya pasó la fecha
+  if (distance < 0) {
+
+    document.getElementById("days").innerHTML = "0";
+    document.getElementById("hours").innerHTML = "0";
+    document.getElementById("minutes").innerHTML = "0";
+    document.getElementById("seconds").innerHTML = "0";
+
+    return;
+  }
+
+  // Cálculos
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) /
+    (1000 * 60 * 60)
+  );
+
+  const minutes = Math.floor(
+    (distance % (1000 * 60 * 60)) /
+    (1000 * 60)
+  );
+
+  const seconds = Math.floor(
+    (distance % (1000 * 60)) /
+    1000
+  );
+
+  // Pintar en HTML
   document.getElementById("days").innerHTML = days;
   document.getElementById("hours").innerHTML = hours;
   document.getElementById("minutes").innerHTML = minutes;
   document.getElementById("seconds").innerHTML = seconds;
+}
 
-}, 1000);
+// Ejecutar inmediatamente
+updateCountdown();
+
+// Ejecutar cada segundo
+setInterval(updateCountdown, 1000);
+
 
 
 // ==========================
@@ -20,24 +65,30 @@ form.addEventListener("submit", async function(e){
   e.preventDefault();
 
   const data = {
+
     nombre: document.getElementById("nombre").value,
+
     acompanantes: document.getElementById("acompanantes").value,
+
     asistencia: document.getElementById("asistencia").value
+
   };
 
-  // =============================
-  // PEGA AQUÍ TU URL DE APPS SCRIPT
-  // =============================
+  // URL APPS SCRIPT
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxw3qQ76JnPjdW7RfNGtXDCx8gxKq-XjbpU6k58tqQ4wygVLBlqiTv0P45snNKJnpsS/exec";
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxw3qQ76JnPjdW7RfNGtXDCx8gxKq-XjbpU6k58tqQ4wygVLBlqiTv0P45snNKJnpsS/exec";
   try {
 
     await fetch(scriptURL, {
+
       method: "POST",
+
       body: JSON.stringify(data),
+
       headers: {
         "Content-Type": "application/json"
       }
+
     });
 
     alert("¡Gracias por confirmar tu asistencia!");
@@ -47,6 +98,7 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbxw3qQ76JnPjdW7RfNGtX
   } catch(error){
 
     alert("Error al enviar confirmación");
+
     console.error(error);
 
   }
