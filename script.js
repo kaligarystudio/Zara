@@ -106,7 +106,7 @@ form.addEventListener("submit", async function(e){
     telefono: document.getElementById("telefono").value
   };
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwBKv_Cogy4Zi3D5BXgavjGYkJmvkvdSoMT-rn8Zf0NXKAQL9aRHX_Mo2WMg6Rq3kr0/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxDuccQveH7nrSZYFA63l-HdBqY9-0Xz5hJaLBSTw7Mp0N8BVi6cy5fxzE7H4zT6HyA/exec";
 
   try {
 
