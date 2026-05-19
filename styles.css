@@ -484,3 +484,149 @@ footer{
   }
 
 }
+
+/* =========================
+   INTRO SOBRE
+========================= */
+
+#intro{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:
+    radial-gradient(circle at top,#12366b 0%, #04152d 60%);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:9999;
+
+  transition:1.2s ease;
+}
+
+.envelope-wrapper{
+  perspective:1200px;
+}
+
+.envelope{
+  width:340px;
+  height:220px;
+  position:relative;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  transition:1s ease;
+}
+
+/* BASE SOBRE */
+
+.envelope::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#d4af37;
+  border-radius:0 0 14px 14px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* TAPA */
+
+.envelope::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  background:#f7d77c;
+
+  clip-path:polygon(0 0,50% 55%,100% 0);
+
+  transform-origin:top;
+  transition:1s ease;
+}
+
+/* CARTA */
+
+.letter{
+  position:absolute;
+
+  width:92%;
+  height:92%;
+
+  background:white;
+
+  left:4%;
+  top:4%;
+
+  border-radius:10px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:20px;
+
+  z-index:-1;
+
+  transition:1s ease;
+}
+
+.letter h2{
+  font-family:'Great Vibes', cursive;
+  color:#0b2347;
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+.letter p{
+  font-family:'Cinzel', serif;
+  color:#d4af37;
+  font-size:1.2rem;
+  margin-bottom:15px;
+}
+
+.letter span{
+  font-size:0.9rem;
+  color:#666;
+}
+
+/* SOBRE ABIERTO */
+
+.envelope.open::after{
+  transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+  transform:translateY(-120px);
+}
+
+/* CONTENIDO */
+
+.hidden{
+  opacity:0;
+  visibility:hidden;
+}
+
+.show{
+  opacity:1;
+  visibility:visible;
+  transition:1.5s ease;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .envelope{
+    width:300px;
+    height:200px;
+  }
+
+}
