@@ -1,38 +1,32 @@
 // ==========================
-// INTRO SOBRE
+// INTRO FULLSCREEN
 // ==========================
 
-const envelope = document.querySelector(".envelope");
-
 const intro = document.getElementById("intro");
+
+const seal = document.getElementById("seal");
 
 const mainContent = document.getElementById("mainContent");
 
 const music = document.getElementById("bgMusic");
 
-envelope.addEventListener("click", () => {
+seal.addEventListener("click", () => {
 
-  envelope.classList.add("open");
+  intro.classList.add("open");
 
-  // Reproducir música
+  // Música
   music.play();
 
   // Mostrar contenido
   setTimeout(() => {
 
-    intro.style.opacity = "0";
+    intro.style.display = "none";
 
-    setTimeout(() => {
+    mainContent.classList.remove("hidden");
 
-      intro.style.display = "none";
+    mainContent.classList.add("show");
 
-      mainContent.classList.remove("hidden");
-
-      mainContent.classList.add("show");
-
-    }, 1000);
-
-  }, 1800);
+  }, 2200);
 
 });
 
