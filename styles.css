@@ -443,3 +443,44 @@ footer{
   }
 
 }
+/* =========================
+   IMAGEN DECORATIVA XV
+========================= */
+
+.xv-image-section{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px 20px 70px;
+}
+
+.xv-image{
+  width:100%;
+  max-width:900px;
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 10px 30px rgba(0,0,0,0.35));
+
+  animation:floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage{
+
+  0%,100%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+}
+
+@media(max-width:768px){
+
+  .xv-image{
+    max-width:95%;
+  }
+
+}
