@@ -1,4 +1,42 @@
 // ==========================
+// INTRO SOBRE
+// ==========================
+
+const envelope = document.querySelector(".envelope");
+
+const intro = document.getElementById("intro");
+
+const mainContent = document.getElementById("mainContent");
+
+const music = document.getElementById("bgMusic");
+
+envelope.addEventListener("click", () => {
+
+  envelope.classList.add("open");
+
+  // Reproducir música
+  music.play();
+
+  // Mostrar contenido
+  setTimeout(() => {
+
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+
+      intro.style.display = "none";
+
+      mainContent.classList.remove("hidden");
+
+      mainContent.classList.add("show");
+
+    }, 1000);
+
+  }, 1800);
+
+});
+
+// ==========================
 // CUENTA REGRESIVA
 // ==========================
 
