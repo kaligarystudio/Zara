@@ -1,3 +1,5 @@
+document.body.classList.add("intro-active");
+
 // ==========================
 // INTRO FULLSCREEN
 // ==========================
@@ -25,7 +27,7 @@ seal.addEventListener("click", () => {
     mainContent.classList.remove("hidden");
 
     mainContent.classList.add("show");
-
+    document.body.classList.remove("intro-active");
   }, 2200);
 
 });
