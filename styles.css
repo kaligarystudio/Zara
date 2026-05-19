@@ -491,6 +491,34 @@ footer{
 }
 
 /* =========================
+   FRASES FAMILIA
+========================= */
+
+.family-phrase{
+
+  margin-top:25px;
+
+  padding-top:20px;
+
+  border-top:
+  1px solid rgba(212,175,55,0.25);
+
+  font-family:'Cinzel', serif;
+
+  font-size:0.95rem;
+
+  line-height:1.8rem;
+
+  letter-spacing:2px;
+
+  color:#f7d77c;
+
+  text-align:center;
+
+  opacity:0.9;
+}
+
+/* =========================
    INTRO FULLSCREEN
 ========================= */
 
