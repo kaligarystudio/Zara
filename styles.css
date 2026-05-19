@@ -17,10 +17,10 @@ body{
   
   margin:0;
   padding:0;
-
+}
+body.intro-active{
   overflow:hidden;
 }
-
 /* =========================
    FONDO ANIMADO
 ========================= */
