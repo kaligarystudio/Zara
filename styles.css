@@ -121,7 +121,7 @@ body.intro-active{
 }
 
 .phrase{
-  font-family:'Cinzel', serif;
+   font-family:'Great Vibes', cursive;
   font-size:1.4rem;
   line-height:2.3rem;
   color:#f3e6c5;
@@ -1114,7 +1114,7 @@ footer{
 
   object-fit:cover;
 
-  opacity:0.14;
+  opacity:1;
 
   filter:
   drop-shadow(0 0 20px rgba(255,215,120,0.12));
@@ -1149,6 +1149,317 @@ footer{
     width:120px;
 
     opacity:0.08;
+  }
+
+}
+/* =========================
+   REGALOS
+========================= */
+
+.gift-section{
+
+  padding-top:20px;
+}
+
+.gift-card{
+
+  max-width:850px;
+
+  margin:auto;
+
+  padding:50px 40px;
+
+  border-radius:28px;
+
+  background:
+  rgba(255,255,255,0.04);
+
+  border:
+  1px solid rgba(212,175,55,0.28);
+
+  text-align:center;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.22);
+}
+
+/* ICONO */
+
+.gift-icon{
+
+  font-size:4rem;
+
+  margin-bottom:25px;
+
+  color:#f7d77c;
+
+  filter:
+  drop-shadow(0 0 15px rgba(255,215,120,0.25));
+
+  animation:
+  giftFloat 4s ease-in-out infinite;
+}
+
+/* TEXTO */
+
+.gift-text{
+
+  font-family:'Great Vibes', cursive;
+
+  font-size:2rem;
+
+  line-height:3rem;
+
+  color:#f8f1dc;
+
+  max-width:760px;
+
+  margin:auto;
+}
+
+/* GRACIAS */
+
+.gift-thanks{
+
+  margin-top:30px;
+
+  font-family:'Cinzel', serif;
+
+  font-size:1.8rem;
+
+  letter-spacing:4px;
+
+  color:#f7d77c;
+}
+
+/* ANIMACION */
+
+@keyframes giftFloat{
+
+  0%,100%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .gift-card{
+
+    padding:35px 25px;
+  }
+
+  .gift-text{
+
+    font-size:1.5rem;
+
+    line-height:2.4rem;
+  }
+
+  .gift-icon{
+
+    font-size:3rem;
+  }
+
+}
+
+/* =========================
+   FRASE INTRODUCTORIA
+========================= */
+
+.intro-phrase{
+
+  max-width:850px;
+
+  margin:0 auto 45px;
+
+  font-family:'Great Vibes', cursive;
+
+  font-size:2.2rem;
+
+  line-height:3.2rem;
+
+  color:#f8f1dc;
+
+  text-align:center;
+
+  text-shadow:
+  0 0 20px rgba(255,215,120,0.08);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .intro-phrase{
+
+    font-size:1.5rem;
+
+    line-height:2.3rem;
+
+    padding:0 10px;
+  }
+
+}
+
+/* =========================
+   ICONOS ITINERARIO
+========================= */
+
+.event-icon{
+
+  font-size:3.2rem;
+
+  color:#f7d77c;
+
+  margin-bottom:25px;
+
+  filter:
+  drop-shadow(0 0 15px rgba(255,215,120,0.25));
+
+  animation:
+  iconFloat 4s ease-in-out infinite;
+}
+
+@keyframes iconFloat{
+
+  0%,100%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+}
+
+/* =========================
+   CODIGO DE VESTIMENTA
+========================= */
+
+.dress-icons{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:60px;
+
+  margin-top:35px;
+
+  flex-wrap:wrap;
+}
+
+/* ITEM */
+
+.dress-item{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:15px;
+
+  color:#f7d77c;
+
+  animation:
+  dressFloat 5s ease-in-out infinite;
+}
+
+/* ICONO */
+
+.dress-item i{
+
+  font-size:4rem;
+
+  filter:
+  drop-shadow(0 0 15px rgba(255,215,120,0.25));
+}
+
+/* TEXTO */
+
+.dress-item span{
+
+  font-family:'Cinzel', serif;
+
+  font-size:1.1rem;
+
+  letter-spacing:3px;
+
+  color:#f8f1dc;
+}
+
+/* ANIMACION */
+
+@keyframes dressFloat{
+
+  0%,100%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .dress-icons{
+
+    gap:35px;
+  }
+
+  .dress-item i{
+
+    font-size:3rem;
+  }
+
+}
+
+/* =========================
+   ICONO RSVP
+========================= */
+
+.rsvp-icon{
+
+  text-align:center;
+
+  margin-bottom:20px;
+
+  color:#f7d77c;
+
+  font-size:4rem;
+
+  filter:
+  drop-shadow(0 0 15px rgba(255,215,120,0.25));
+
+  animation:
+  rsvpFloat 4s ease-in-out infinite;
+}
+
+@keyframes rsvpFloat{
+
+  0%,100%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
   }
 
 }
