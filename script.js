@@ -137,3 +137,39 @@ form.addEventListener("submit", async function(e){
   }
 
 });
+// ==========================
+// Mariposas
+// ==========================
+
+const container = document.querySelector(".butterflies");
+
+const isMobile = window.innerWidth <= 768;
+
+// cantidad dinámica
+const butterflyCount = isMobile ? 14 : 8;
+
+const animations = ["fly1", "fly2", "fly3", "fly4", "fly5"];
+
+for (let i = 0; i < butterflyCount; i++) {
+  const b = document.createElement("div");
+  b.className = "butterfly";
+  b.textContent = "🦋";
+
+  // posición inicial random
+  const startLeft = Math.random() * 100;
+  const startTop = 80 + Math.random() * 30;
+
+  // estilos dinámicos
+  b.style.left = startLeft + "%";
+  b.style.top = startTop + "%";
+
+  b.style.fontSize = (1 + Math.random() * 1.2) + "rem";
+  b.style.opacity = 0.5 + Math.random() * 0.4;
+
+  const anim = animations[Math.floor(Math.random() * animations.length)];
+  const duration = 18 + Math.random() * 12;
+
+  b.style.animation = `${anim} ${duration}s linear infinite`;
+
+  container.appendChild(b);
+}
