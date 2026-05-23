@@ -660,8 +660,8 @@ footer{
 
   background:
   radial-gradient(circle at top,
-  #d10000,
-  #7a0000);
+  #1f4f9c,
+  #08244d);
 
   display:flex;
   justify-content:center;
@@ -708,7 +708,7 @@ footer{
 
   font-weight:bold;
 
-  color:#f7d77c;
+  color:#ffd86b;
 
   letter-spacing:4px;
 }
@@ -810,6 +810,85 @@ footer{
 
   .wax-seal span{
     font-size:2rem;
+  }
+
+}
+
+/* =========================
+   FLORES INTRO
+========================= */
+
+.intro-flower{
+
+  position:absolute;
+
+  z-index:99999999;
+
+  pointer-events:none;
+
+  opacity:0.95;
+
+  filter:
+    drop-shadow(0 10px 25px rgba(0,0,0,0.35));
+
+  animation:
+    flowerFloat 6s ease-in-out infinite;
+}
+
+/* IZQUIERDA */
+
+.left-flower{
+
+  left:-40px;
+  top:-20px;
+
+  width:420px;
+}
+
+/* DERECHA */
+
+.right-flower{
+
+  right:-40px;
+  top:-20px;
+
+  width:420px;
+
+  transform:scaleX(-1);
+}
+
+/* ANIMACION */
+
+@keyframes flowerFloat{
+
+  0%,100%{
+    transform:
+    translateY(0px);
+  }
+
+  50%{
+    transform:
+    translateY(-10px);
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .left-flower{
+
+    width:230px;
+
+    left:-30px;
+  }
+
+  .right-flower{
+
+    width:230px;
+
+    right:-30px;
   }
 
 }
