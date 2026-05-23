@@ -171,11 +171,4 @@ for (let i = 0; i < butterflyCount; i++) {
 
   b.style.animation = `${anim} ${duration}s linear infinite`;
 
-  const centerZone = { min: 35, max: 65 };
-
-if (startLeft > centerZone.min && startLeft < centerZone.max) {
-  startLeft < 50 ? startLeft -= 20 : startLeft += 20;
-}
-
-  container.appendChild(b);
-}
+  
