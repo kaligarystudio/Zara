@@ -17,6 +17,7 @@ body{
   
   margin:0;
   padding:0;
+
 }
 body.intro-active{
   overflow:hidden;
@@ -1076,6 +1077,78 @@ footer{
 
   .butterfly{
     font-size:1.5rem;
+  }
+
+}
+
+/* =========================
+   ENREDADERAS LATERALES
+========================= */
+
+.vine-decoration{
+
+  position:fixed;
+
+  inset:0;
+
+  width:100%;
+
+  pointer-events:none;
+
+  z-index:5;
+
+  overflow:hidden;
+}
+
+/* IMAGEN */
+
+.vine{
+
+  position:absolute;
+
+  top:0;
+
+  width:180px;
+
+  height:100vh;
+
+  object-fit:cover;
+
+  opacity:0.14;
+
+  filter:
+  drop-shadow(0 0 20px rgba(255,215,120,0.12));
+}
+
+/* IZQUIERDA */
+
+.left-vine{
+
+  left:0;
+
+  object-position:left center;
+}
+
+/* DERECHA */
+
+.right-vine{
+
+  right:0;
+
+  object-position:right center;
+
+  transform:
+  scaleX(-1);
+}
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .vine{
+
+    width:120px;
+
+    opacity:0.08;
   }
 
 }
