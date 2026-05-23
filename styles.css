@@ -95,7 +95,11 @@ body.intro-active{
   max-width:900px;
   animation:fadeIn 2s ease;
 }
-
+@media(max-width:768px){
+  .hero-content{
+    padding:0 25px;
+  }
+}
 .subtitle{
   font-size:1.1rem;
   letter-spacing:6px;
@@ -877,21 +881,24 @@ footer{
 /* MOBILE */
 
 @media(max-width:768px){
+   .intro-flower{
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
+  }
+  .left-flower,
+  .right-flower{
+    width:140px;
+    opacity:0.6;
+  }
 
   .left-flower{
-
-    width:230px;
-
-    left:-30px;
+    left:-60px;
+    top:10px;
   }
 
   .right-flower{
-
-    width:230px;
-
-    right:-30px;
+    right:-60px;
+    top:10px;
   }
-
 }
 
 /* =========================
