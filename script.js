@@ -171,4 +171,5 @@ for (let i = 0; i < butterflyCount; i++) {
 
   b.style.animation = `${anim} ${duration}s linear infinite`;
 
-  
+  container.appendChild(b);
+}
