@@ -892,3 +892,190 @@ footer{
   }
 
 }
+
+/* =========================
+   MARIPOSAS
+========================= */
+
+.butterflies{
+
+  position:fixed;
+
+  inset:0;
+
+  overflow:hidden;
+
+  pointer-events:none;
+
+  z-index:2;
+}
+
+/* MARIPOSA */
+
+.butterfly{
+
+  position:absolute;
+
+  font-size:2rem;
+
+  opacity:0.7;
+
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+
+  filter:
+  drop-shadow(0 0 12px rgba(255,215,120,0.45));
+
+  user-select:none;
+}
+
+/* DIFERENTES MARIPOSAS */
+
+.b1{
+
+  left:5%;
+  top:85%;
+
+  animation:
+  fly1 18s infinite;
+}
+
+.b2{
+
+  left:25%;
+  top:95%;
+
+  font-size:1.6rem;
+
+  animation:
+  fly2 22s infinite;
+}
+
+.b3{
+
+  left:50%;
+  top:90%;
+
+  font-size:2.3rem;
+
+  animation:
+  fly3 20s infinite;
+}
+
+.b4{
+
+  left:75%;
+  top:100%;
+
+  font-size:1.8rem;
+
+  animation:
+  fly4 25s infinite;
+}
+
+.b5{
+
+  left:90%;
+  top:92%;
+
+  font-size:2.5rem;
+
+  animation:
+  fly5 28s infinite;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes fly1{
+
+  0%{
+    transform:
+    translate(0,0)
+    rotate(0deg);
+  }
+
+  100%{
+    transform:
+    translate(200px,-120vh)
+    rotate(25deg);
+  }
+
+}
+
+@keyframes fly2{
+
+  0%{
+    transform:
+    translate(0,0)
+    rotate(-10deg);
+  }
+
+  100%{
+    transform:
+    translate(-180px,-120vh)
+    rotate(15deg);
+  }
+
+}
+
+@keyframes fly3{
+
+  0%{
+    transform:
+    translate(0,0)
+    rotate(0deg);
+  }
+
+  100%{
+    transform:
+    translate(120px,-120vh)
+    rotate(-20deg);
+  }
+
+}
+
+@keyframes fly4{
+
+  0%{
+    transform:
+    translate(0,0)
+    rotate(15deg);
+  }
+
+  100%{
+    transform:
+    translate(-220px,-120vh)
+    rotate(-15deg);
+  }
+
+}
+
+@keyframes fly5{
+
+  0%{
+    transform:
+    translate(0,0)
+    rotate(0deg);
+  }
+
+  100%{
+    transform:
+    translate(-120px,-120vh)
+    rotate(20deg);
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .butterfly{
+    font-size:1.5rem;
+  }
+
+}
