@@ -193,13 +193,31 @@ async function(e){
   const files =
   document.getElementById("mediaFiles").files;
 
+  // VALIDAR ARCHIVOS
+
+  if(files.length === 0){
+
+    alert(
+      "Selecciona al menos un archivo"
+    );
+
+    return;
+  }
+
   const filesData = [];
 
   try{
 
-    // CONVERTIR ARCHIVOS
+    // ==========================
+    // CONVERTIR A BASE64
+    // ==========================
 
     for(const file of files){
+
+      console.log(
+        "Procesando:",
+        file.name
+      );
 
       const base64 =
       await toBase64(file);
@@ -216,6 +234,10 @@ async function(e){
 
     }
 
+    // ==========================
+    // PAYLOAD
+    // ==========================
+
     const payload = {
 
       nombre:guestName,
@@ -224,13 +246,19 @@ async function(e){
 
     };
 
-    // ENVIAR
+    console.log(payload);
 
-    const response = await fetch(
+    // ==========================
+    // ENVIAR A APPS SCRIPT
+    // ==========================
+
+    await fetch(
       "https://script.google.com/macros/s/AKfycbzfCDxDh95i0DvzW9bPF3Ns2ewV7Ffc62WXcpPVJc0it45TMmey4ec0QFv4PqfS-Wfg/exec",
       {
 
         method:"POST",
+
+        mode:"no-cors",
 
         headers:{
           "Content-Type":"application/json"
@@ -241,44 +269,30 @@ async function(e){
       }
     );
 
-    // RESPUESTA
+    // ==========================
+    // EXITO
+    // ==========================
 
-    const result =
-    await response.json();
+    alert(
+      "Tus recuerdos fueron subidos ❤️"
+    );
 
-    console.log(result);
-
-    if(result.success){
-
-      alert(
-        "Tus recuerdos fueron subidos ❤️"
-      );
-
-      uploadForm.reset();
-
-    }else{
-
-      alert(
-        "Error: " + result.error
-      );
-
-      console.error(result.error);
-
-    }
+    uploadForm.reset();
 
   }catch(error){
 
     console.error(error);
 
     alert(
-      "ERROR GENERAL:\n" + error
+      "Error al subir archivos"
     );
+
   }
 
 });
 
 // ==========================
-// BASE64
+// CONVERTIR BASE64
 // ==========================
 
 function toBase64(file){
