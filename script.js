@@ -195,66 +195,91 @@ async function(e){
 
   const filesData = [];
 
-  for(const file of files){
-
-    const base64 =
-    await toBase64(file);
-
-    filesData.push({
-
-      fileName:file.name,
-
-      mimeType:file.type,
-
-      data:base64.split(",")[1]
-
-    });
-
-  }
-
-  const payload = {
-
-    nombre:guestName,
-
-    files:filesData
-
-  };
-
   try{
 
-    await fetch(
+    // CONVERTIR ARCHIVOS
+
+    for(const file of files){
+
+      const base64 =
+      await toBase64(file);
+
+      filesData.push({
+
+        fileName:file.name,
+
+        mimeType:file.type,
+
+        data:base64.split(",")[1]
+
+      });
+
+    }
+
+    const payload = {
+
+      nombre:guestName,
+
+      files:filesData
+
+    };
+
+    // ENVIAR
+
+    const response = await fetch(
       "https://script.google.com/macros/s/AKfycbzfCDxDh95i0DvzW9bPF3Ns2ewV7Ffc62WXcpPVJc0it45TMmey4ec0QFv4PqfS-Wfg/exec",
       {
 
         method:"POST",
 
-        body:JSON.stringify(payload),
-
         headers:{
           "Content-Type":"application/json"
-        }
+        },
+
+        body:JSON.stringify(payload)
 
       }
     );
 
-    alert(
-      "Tus recuerdos fueron subidos ❤️"
-    );
+    // RESPUESTA
 
-    uploadForm.reset();
+    const result =
+    await response.json();
+
+    console.log(result);
+
+    if(result.success){
+
+      alert(
+        "Tus recuerdos fueron subidos ❤️"
+      );
+
+      uploadForm.reset();
+
+    }else{
+
+      alert(
+        "Error: " + result.error
+      );
+
+      console.error(result.error);
+
+    }
 
   }catch(error){
 
     console.error(error);
 
     alert(
-      "Error al subir archivos"
+      "ERROR GENERAL:\n" + error
     );
   }
 
 });
 
+// ==========================
 // BASE64
+// ==========================
 
 function toBase64(file){
 
