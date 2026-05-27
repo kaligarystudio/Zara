@@ -173,3 +173,104 @@ for (let i = 0; i < butterflyCount; i++) {
 
   container.appendChild(b);
 }
+
+// ==========================
+// SUBIR FOTOS / VIDEOS
+// ==========================
+
+const uploadForm =
+document.getElementById("uploadForm");
+
+uploadForm.addEventListener(
+"submit",
+async function(e){
+
+  e.preventDefault();
+
+  const guestName =
+  document.getElementById("guestName").value;
+
+  const files =
+  document.getElementById("mediaFiles").files;
+
+  const filesData = [];
+
+  for(const file of files){
+
+    const base64 =
+    await toBase64(file);
+
+    filesData.push({
+
+      fileName:file.name,
+
+      mimeType:file.type,
+
+      data:base64.split(",")[1]
+
+    });
+
+  }
+
+  const payload = {
+
+    nombre:guestName,
+
+    files:filesData
+
+  };
+
+  try{
+
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbzfCDxDh95i0DvzW9bPF3Ns2ewV7Ffc62WXcpPVJc0it45TMmey4ec0QFv4PqfS-Wfg/exec",
+      {
+
+        method:"POST",
+
+        body:JSON.stringify(payload),
+
+        headers:{
+          "Content-Type":"application/json"
+        }
+
+      }
+    );
+
+    alert(
+      "Tus recuerdos fueron subidos ❤️"
+    );
+
+    uploadForm.reset();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "Error al subir archivos"
+    );
+  }
+
+});
+
+// BASE64
+
+function toBase64(file){
+
+  return new Promise((resolve,reject)=>{
+
+    const reader =
+    new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload =
+    ()=>resolve(reader.result);
+
+    reader.onerror =
+    error=>reject(error);
+
+  });
+
+}

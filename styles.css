@@ -1463,3 +1463,89 @@ footer{
   }
 
 }
+
+/* =========================
+   QUINCEAÑERA INTRO
+========================= */
+
+.intro-girl{
+
+  position:absolute;
+
+  bottom:0;
+
+  left:50%;
+
+  transform:
+  translateX(-50%);
+
+  width:520px;
+
+  max-width:90vw;
+
+  opacity:0.28;
+
+  pointer-events:none;
+
+  z-index:1;
+
+  filter:
+  drop-shadow(0 0 35px rgba(255,215,120,0.18));
+
+  animation:
+  girlFloat 6s ease-in-out infinite;
+}
+
+/* ANIMACION */
+
+@keyframes girlFloat{
+
+  0%,100%{
+
+    transform:
+    translateX(-50%)
+    translateY(0px);
+  }
+
+  50%{
+
+    transform:
+    translateX(-50%)
+    translateY(-12px);
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .intro-girl{
+
+    width:320px;
+
+    opacity:0.22;
+  }
+
+}
+
+/* =========================
+   SUBIR RECUERDOS
+========================= */
+
+#uploadForm input[type="file"]{
+
+  background:
+  rgba(255,255,255,0.08);
+
+  padding:18px;
+
+  border-radius:16px;
+
+  color:white;
+}
+
+#uploadForm button{
+
+  margin-top:10px;
+}
