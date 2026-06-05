@@ -106,7 +106,7 @@ form.addEventListener("submit", async function(e){
     telefono: document.getElementById("telefono").value
   };
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbxDuccQveH7nrSZYFA63l-HdBqY9-0Xz5hJaLBSTw7Mp0N8BVi6cy5fxzE7H4zT6HyA/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxH9jz4ET0rqqQ9X1HurMXx-GsXqcv0CWDhVzph9K22Uo04GJLwNjzPWRr-Y312Dbl8/exec";
 
   try {
 
@@ -193,31 +193,13 @@ async function(e){
   const files =
   document.getElementById("mediaFiles").files;
 
-  // VALIDAR ARCHIVOS
-
-  if(files.length === 0){
-
-    alert(
-      "Selecciona al menos un archivo"
-    );
-
-    return;
-  }
-
   const filesData = [];
 
   try{
 
-    // ==========================
-    // CONVERTIR A BASE64
-    // ==========================
+    // CONVERTIR ARCHIVOS
 
     for(const file of files){
-
-      console.log(
-        "Procesando:",
-        file.name
-      );
 
       const base64 =
       await toBase64(file);
@@ -234,10 +216,6 @@ async function(e){
 
     }
 
-    // ==========================
-    // PAYLOAD
-    // ==========================
-
     const payload = {
 
       nombre:guestName,
@@ -246,19 +224,13 @@ async function(e){
 
     };
 
-    console.log(payload);
+    // ENVIAR
 
-    // ==========================
-    // ENVIAR A APPS SCRIPT
-    // ==========================
-
-    await fetch(
+    const response = await fetch(
       "https://script.google.com/macros/s/AKfycbzfCDxDh95i0DvzW9bPF3Ns2ewV7Ffc62WXcpPVJc0it45TMmey4ec0QFv4PqfS-Wfg/exec",
       {
 
         method:"POST",
-
-        mode:"no-cors",
 
         headers:{
           "Content-Type":"application/json"
@@ -269,30 +241,44 @@ async function(e){
       }
     );
 
-    // ==========================
-    // EXITO
-    // ==========================
+    // RESPUESTA
 
-    alert(
-      "Tus recuerdos fueron subidos ❤️"
-    );
+    const result =
+    await response.json();
 
-    uploadForm.reset();
+    console.log(result);
+
+    if(result.success){
+
+      alert(
+        "Tus recuerdos fueron subidos ❤️"
+      );
+
+      uploadForm.reset();
+
+    }else{
+
+      alert(
+        "Error: " + result.error
+      );
+
+      console.error(result.error);
+
+    }
 
   }catch(error){
 
     console.error(error);
 
     alert(
-      "Error al subir archivos"
+      "ERROR GENERAL:\n" + error
     );
-
   }
 
 });
 
 // ==========================
-// CONVERTIR BASE64
+// BASE64
 // ==========================
 
 function toBase64(file){
