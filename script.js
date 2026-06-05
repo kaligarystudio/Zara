@@ -227,7 +227,7 @@ async function(e){
     // ENVIAR
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzfCDxDh95i0DvzW9bPF3Ns2ewV7Ffc62WXcpPVJc0it45TMmey4ec0QFv4PqfS-Wfg/exec",
+      "https://script.google.com/macros/s/AKfycbyfwRaZUC_i-jEo9mIlyIzUNpCwok1R7D27t5sKG8ZJkBc9_FxC-sb8iVnPk_57kF0b/exec",
       {
 
         method:"POST",
