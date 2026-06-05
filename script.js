@@ -181,101 +181,176 @@ for (let i = 0; i < butterflyCount; i++) {
 const uploadForm =
 document.getElementById("uploadForm");
 
-uploadForm.addEventListener(
-"submit",
-async function(e){
+if(uploadForm){
 
-  e.preventDefault();
+  uploadForm.addEventListener(
+    "submit",
+    async function(e){
 
-  const guestName =
-  document.getElementById("guestName").value;
+      e.preventDefault();
 
-  const files =
-  document.getElementById("mediaFiles").files;
+      console.log("Formulario enviado");
 
-  const filesData = [];
+      try{
 
-  try{
+        const guestName =
+        document.getElementById("guestName").value.trim();
 
-    // CONVERTIR ARCHIVOS
+        const files =
+        document.getElementById("mediaFiles").files;
 
-    for(const file of files){
+        console.log("Invitado:", guestName);
+        console.log("Archivos:", files.length);
 
-      const base64 =
-      await toBase64(file);
+        if(!guestName){
 
-      filesData.push({
+          alert("Ingresa tu nombre");
 
-        fileName:file.name,
+          return;
+        }
 
-        mimeType:file.type,
+        if(files.length === 0){
 
-        data:base64.split(",")[1]
+          alert("Selecciona al menos un archivo");
 
-      });
+          return;
+        }
 
-    }
+        const filesData = [];
 
-    const payload = {
+        // ==========================
+        // CONVERTIR ARCHIVOS A BASE64
+        // ==========================
 
-      nombre:guestName,
+        for(const file of files){
 
-      files:filesData
+          console.log(
+            "Procesando:",
+            file.name,
+            file.size,
+            file.type
+          );
 
-    };
+          const base64 =
+          await toBase64(file);
 
-    // ENVIAR
+          filesData.push({
 
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbyfwRaZUC_i-jEo9mIlyIzUNpCwok1R7D27t5sKG8ZJkBc9_FxC-sb8iVnPk_57kF0b/exec",
-      {
+            fileName:file.name,
 
-        method:"POST",
+            mimeType:file.type,
 
-        headers:{
-          "Content-Type":"application/json"
-        },
+            data:base64.split(",")[1]
 
-        body:JSON.stringify(payload)
+          });
+
+        }
+
+        const payload = {
+
+          nombre:guestName,
+
+          files:filesData
+
+        };
+
+        console.log("Payload listo");
+        console.log(payload);
+
+        // ==========================
+        // ENVIAR A APPS SCRIPT
+        // ==========================
+
+        const response = await fetch(
+          "https://script.google.com/macros/s/AKfycbyfwRaZUC_i-jEo9mIlyIzUNpCwok1R7D27t5sKG8ZJkBc9_FxC-sb8iVnPk_57kF0b/exec",
+          {
+
+            method:"POST",
+
+            headers:{
+              "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(payload)
+
+          }
+        );
+
+        console.log("Status:", response.status);
+        console.log("OK:", response.ok);
+
+        // ==========================
+        // LEER RESPUESTA
+        // ==========================
+
+        const text =
+        await response.text();
+
+        console.log("Respuesta Apps Script:");
+        console.log(text);
+
+        let result;
+
+        try{
+
+          result =
+          JSON.parse(text);
+
+        }catch(parseError){
+
+          console.error(
+            "No se pudo parsear JSON",
+            parseError
+          );
+
+          alert(
+            "El servidor respondió algo inesperado. Revisa la consola."
+          );
+
+          return;
+        }
+
+        // ==========================
+        // RESULTADO
+        // ==========================
+
+        if(result.success){
+
+          alert(
+            "Tus recuerdos fueron subidos ❤️"
+          );
+
+          uploadForm.reset();
+
+        }else{
+
+          alert(
+            "Error:\n" +
+            result.error
+          );
+
+          console.error(result.error);
+
+        }
+
+      }catch(error){
+
+        console.error(
+          "ERROR GENERAL:",
+          error
+        );
+
+        alert(
+          "ERROR GENERAL:\n\n" +
+          error.message
+        );
 
       }
-    );
-
-    // RESPUESTA
-
-    const result =
-    await response.json();
-
-    console.log(result);
-
-    if(result.success){
-
-      alert(
-        "Tus recuerdos fueron subidos ❤️"
-      );
-
-      uploadForm.reset();
-
-    }else{
-
-      alert(
-        "Error: " + result.error
-      );
-
-      console.error(result.error);
 
     }
+  );
 
-  }catch(error){
-
-    console.error(error);
-
-    alert(
-      "ERROR GENERAL:\n" + error
-    );
-  }
-
-});
+}
 
 // ==========================
 // BASE64
@@ -291,10 +366,10 @@ function toBase64(file){
     reader.readAsDataURL(file);
 
     reader.onload =
-    ()=>resolve(reader.result);
+    () => resolve(reader.result);
 
     reader.onerror =
-    error=>reject(error);
+    error => reject(error);
 
   });
 
