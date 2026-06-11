@@ -222,26 +222,17 @@ async function(e){
 
   try{
 
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbyfwRaZUC_i-jEo9mIlyIzUNpCwok1R7D27t5sKG8ZJkBc9_FxC-sb8iVnPk_57kF0b/exec",
-      {
+   const response = await fetch(
+  "https://script.google.com/macros/s/AKfycbyfwRaZUC_i-jEo9mIlyIzUNpCwok1R7D27t5sKG8ZJkBc9_FxC-sb8iVnPk_57kF0b/exec",
+  {
+    method:"POST",
+    mode:"no-cors",
+    body:JSON.stringify(payload)
+  }
+);
 
-        method:"POST",
-
-        body:JSON.stringify(payload),
-
-        headers:{
-          "Content-Type":"application/json"
-        }
-
-      }
-    );
-
-    alert(
-      "Tus recuerdos fueron subidos ❤️"
-    );
-
-    uploadForm.reset();
+alert("Tus recuerdos fueron subidos ❤️");
+uploadForm.reset();
 
   }catch(error){
 
